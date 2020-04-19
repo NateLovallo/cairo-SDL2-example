@@ -9,8 +9,13 @@ sudo apt install libsdl2 libsdl2-dev libcairo2dev
 sudo apt install cmake ninja-build
 
 Or whatever you like for building
+```
+mkdir build
 
->mkdir build
->cd build
->cmake ../ -G Ninja
->ninja
+cd build
+
+cmake ../ -G Ninja
+
+ninja
+
+```

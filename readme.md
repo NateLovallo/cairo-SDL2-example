@@ -10,8 +10,7 @@ sudo apt install cmake ninja-build
 
 Or whatever you like for building
 
-mkdir build
-cd build
-cmake ../ -G Ninja
-ninja
-
+>mkdir build
+>cd build
+>cmake ../ -G Ninja
+>ninja

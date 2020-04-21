@@ -86,15 +86,7 @@ int main(int argc, char* args[])
 
       myTex = SDL_CreateTextureFromSurface( myRenderer, formattedSurface );
       
-      //SDL_SetTextureBlendMode( myTex, SDL_BLENDMODE_BLEND );
-      
-      //SDL_LockTexture( myTex, &formattedSurface->clip_rect, &mPixels, &mPitch );
-      
-      //SDL_UnlockTexture( mTexture );
-      
-      //SDL_Rect renderQuad = { x, y, mWidth, mHeight };
-
-
+      SDL_FreeSurface( formattedSurface );
 
       SDL_RenderCopy( myRenderer, myTex, NULL, NULL);
 
@@ -102,7 +94,7 @@ int main(int argc, char* args[])
       
       SDL_RenderPresent(myRenderer);
       
-         SDL_DestroyTexture( myTex );
+      SDL_DestroyTexture( myTex );
    }
    
    SDL_DestroyTexture( myTex );

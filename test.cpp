@@ -41,6 +41,7 @@ int main(int argc, char* args[])
    
    while (run)
    {
+      uint32_t startTicks = SDL_GetTicks();
       SDL_Event e;
       // something is happen!
       while( SDL_PollEvent( &e ) != 0 )
@@ -84,17 +85,19 @@ int main(int argc, char* args[])
             cairo_stroke (cr);
             
             
-            cairo_select_font_face (cr, "Sans", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+            cairo_select_font_face (cr, "monospace", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
             cairo_set_font_size (cr, 30.0);
-            cairo_move_to (cr, 150.0, 350.0);
+            cairo_move_to (cr, 50.0, 350.0);
             
             uint32_t ticks = SDL_GetTicks();
             uint32_t delta = ticks-lastTicks;
             char sFps[32];
             double fps = 1000.0 / (double)delta;
             
-            sprintf(sFps, "%3.0f fps", fps);
+            sprintf(sFps, "%3.0f fps %u ticks", fps, ticks-startTicks);
             cairo_show_text (cr, sFps);
+            
+            
             
             lastTicks = ticks;
 
